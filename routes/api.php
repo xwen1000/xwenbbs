@@ -56,6 +56,9 @@ Route::prefix('v1')->namespace('Api')
                 // 分类列表
                 Route::get('categories', 'CategoriesController@index')
                     ->name('categories.index');
+                // 话题详情
+                Route::get('topics/{topic}', 'TopicsController@show')
+                    ->name('topics.show');
                 //话题列表
                 Route::get('topics', 'TopicsController@index')
                     ->name('topics.index');
