@@ -39,7 +39,7 @@ class TopicsController extends Controller
     public function index(Request $request, Topic $topic)
     {
         $topics = QueryBuilder::for(Topic::class)
-            ->allowedIncludes('user', 'category')
+            ->allowedIncludes('user', 'category', 'user.roles')
             ->allowedFilters([
                 'title',
                 AllowedFilter::exact('category_id'),
@@ -54,7 +54,7 @@ class TopicsController extends Controller
         $query = $user->topics()->getQuery();
 
         $topics = QueryBuilder::for($query)
-            ->allowedIncludes('user', 'category')
+            ->allowedIncludes('user', 'category', 'user.roles')
             ->allowedFilters([
                 'title',
                 AllowedFilter::exact('category_id'),
