@@ -94,6 +94,15 @@ Route::prefix('v1')->namespace('Api')
                     // 通知列表
                     Route::get('notifications', 'NotificationsController@index')
                         ->name('notifications.index');
+                    // 通知统计
+                    Route::get('notifications/stats', 'NotificationsController@stats')
+                        ->name('notifications.stats');
+                    // 标记消息通知为已读
+                    Route::patch('user/read/notifications', 'NotificationsController@read')
+                        ->name('user.notifications.read');
+                    // 当前登录用户权限
+                    Route::get('user/permissions', 'PermissionsController@index')
+                    ->name('user.permissions.index');
                 });
             });
     
